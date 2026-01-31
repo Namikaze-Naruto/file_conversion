@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app/backend
+      - ./frontend:/app/frontend
+      - upload_data:/app/backend/uploads
+      - output_data:/app/backend/outputs
+    environment:
+      - DEBUG=true
+      - ALLOWED_ORIGINS=*
+      - DATABASE_URL=sqlite:///./conversions.db
+    restart: unless-stopped
+
+volumes:
+  upload_data:
+  output_data:

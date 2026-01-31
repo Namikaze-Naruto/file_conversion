@@ -1,0 +1,67 @@
+# Core Framework
+fastapi==0.109.0
+uvicorn[standard]==0.27.0
+python-multipart==0.0.6
+aiofiles==23.2.1
+python-dotenv==1.0.0
+pydantic==2.5.3
+pydantic-settings==2.1.0
+
+# Database
+sqlalchemy==2.0.25
+alembic==1.13.1
+
+# Document Processing
+pdf2docx==0.5.8
+python-docx==1.1.0
+PyPDF2==3.0.1
+reportlab==4.0.9
+pypandoc==1.12
+ebooklib==0.18
+openpyxl==3.1.2
+odfpy==1.4.1
+python-pptx==0.6.23
+
+# Image Processing
+Pillow==10.2.0
+opencv-python==4.9.0.80
+cairosvg==2.7.1
+svglib==1.5.1
+rawpy==0.19.0
+imageio==2.33.1
+
+# Audio/Video Processing
+pydub==0.25.1
+ffmpeg-python==0.2.0
+moviepy==1.0.3
+librosa==0.10.1
+SpeechRecognition==3.10.1
+gTTS==2.5.0
+
+# Archive/Compression
+rarfile==4.1
+py7zr==0.20.8
+
+# Data Formats
+pandas==2.1.4
+lxml==5.1.0
+PyYAML==6.0.1
+nbconvert==7.14.2
+xlrd==2.0.1
+
+# Design Files
+psd-tools==1.9.31
+ezdxf==1.2.0
+
+# Database Formats
+pyarrow==14.0.2
+avro==1.11.3
+
+# Security/Encoding
+cryptography==42.0.0
+
+# AI/OCR
+pytesseract==0.3.10
+
+# Utilities
+httpx==0.26.0

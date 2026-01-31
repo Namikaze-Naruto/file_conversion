@@ -1,0 +1,1089 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "File Conversion Platform",
+    "description": "Comprehensive file conversion platform supporting 100+ conversion types",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/api/documents/convert/{conversion_id}": {
+      "post": {
+        "tags": [
+          "documents"
+        ],
+        "summary": "Convert Document",
+        "description": "Convert a document to the specified target format\n\n- **conversion_id**: ID of the uploaded file\n- **target_format**: Target format (pdf, docx, txt, csv, xlsx, etc.)",
+        "operationId": "convert_document_api_documents_convert__conversion_id__post",
+        "parameters": [
+          {
+            "name": "conversion_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Conversion Id"
+            }
+          },
+          {
+            "name": "target_format",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Target Format"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/documents/supported-conversions": {
+      "get": {
+        "tags": [
+          "documents"
+        ],
+        "summary": "Get Supported Conversions",
+        "description": "Get list of supported document conversions",
+        "operationId": "get_supported_conversions_api_documents_supported_conversions_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/images/convert/{conversion_id}": {
+      "post": {
+        "tags": [
+          "images"
+        ],
+        "summary": "Convert Image",
+        "description": "Convert an uploaded image to the specified format.\n\nSupported conversions:\n- JPG Γåö PNG\n- PNG ΓåÆ WebP\n- WebP ΓåÆ PNG/JPG\n- TIFF ΓåÆ JPG/PNG\n- BMP ΓåÆ JPG/PNG\n- HEIC ΓåÆ JPG/PNG\n- SVG ΓåÆ PNG/JPG\n- Image ΓåÆ PDF\n- ICO Γåö PNG",
+        "operationId": "convert_image_api_images_convert__conversion_id__post",
+        "parameters": [
+          {
+            "name": "conversion_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Conversion Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_convert_image_api_images_convert__conversion_id__post"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConversionResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/audio/convert/{conversion_id}": {
+      "post": {
+        "tags": [
+          "audio"
+        ],
+        "summary": "Convert Audio",
+        "description": "Convert audio files between formats or perform audio operations.\n\nSupported conversions:\n- MP3 Γåö WAV, AAC, OGG\n- FLAC ΓåÆ MP3\n- M4A ΓåÆ MP3\n- WAV ΓåÆ FLAC\n- OPUS ΓåÆ MP3\n- Text ΓåÆ Audio (TTS)\n- Video ΓåÆ Audio extraction",
+        "operationId": "convert_audio_api_audio_convert__conversion_id__post",
+        "parameters": [
+          {
+            "name": "conversion_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Conversion Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_convert_audio_api_audio_convert__conversion_id__post"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConversionResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/video/convert/{conversion_id}": {
+      "post": {
+        "tags": [
+          "video"
+        ],
+        "summary": "Convert Video",
+        "description": "Convert video files between formats or extract content.\n\nSupported conversions:\n- MP4 Γåö MKV, AVI\n- MOV ΓåÆ MP4\n- FLV ΓåÆ MP4\n- WMV ΓåÆ MP4\n- WebM ΓåÆ MP4\n- Video ΓåÆ GIF\n- Video ΓåÆ Audio\n- Video ΓåÆ Frames",
+        "operationId": "convert_video_api_video_convert__conversion_id__post",
+        "parameters": [
+          {
+            "name": "conversion_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Conversion Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_convert_video_api_video_convert__conversion_id__post"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConversionResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/archives/convert/{conversion_id}": {
+      "post": {
+        "tags": [
+          "archives"
+        ],
+        "summary": "Convert Archive",
+        "description": "Convert between archive formats.\n\nSupported conversions:\n- ZIP Γåö RAR\n- RAR ΓåÆ ZIP\n- 7Z ΓåÆ ZIP\n- TAR ΓåÆ ZIP\n- GZIP ΓåÆ ZIP\n- ZIP ΓåÆ TAR",
+        "operationId": "convert_archive_api_archives_convert__conversion_id__post",
+        "parameters": [
+          {
+            "name": "conversion_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Conversion Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_convert_archive_api_archives_convert__conversion_id__post"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConversionResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/code/convert/{conversion_id}": {
+      "post": {
+        "tags": [
+          "code"
+        ],
+        "summary": "Convert Code",
+        "description": "Convert code and data formats.\n\nSupported conversions:\n- JSON Γåö CSV, XML, YAML\n- CSV Γåö XML, JSON\n- Excel ΓåÆ JSON\n- HTML ΓåÆ PDF, Markdown\n- Markdown ΓåÆ HTML\n- Jupyter Notebook ΓåÆ HTML, PDF",
+        "operationId": "convert_code_api_code_convert__conversion_id__post",
+        "parameters": [
+          {
+            "name": "conversion_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Conversion Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_convert_code_api_code_convert__conversion_id__post"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConversionResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/design/convert/{conversion_id}": {
+      "post": {
+        "tags": [
+          "design"
+        ],
+        "summary": "Convert Design",
+        "description": "Convert design and CAD files.\n\nSupported conversions:\n- PSD ΓåÆ PNG, JPG\n- SVG ΓåÆ PDF\n- DXF ΓåÆ SVG",
+        "operationId": "convert_design_api_design_convert__conversion_id__post",
+        "parameters": [
+          {
+            "name": "conversion_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Conversion Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_convert_design_api_design_convert__conversion_id__post"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConversionResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/database/convert/{conversion_id}": {
+      "post": {
+        "tags": [
+          "database"
+        ],
+        "summary": "Convert Database",
+        "description": "Convert database and big-data formats.\n\nSupported conversions:\n- SQL Γåö CSV\n- JSON ΓåÆ SQL\n- Excel ΓåÆ SQL\n- Parquet ΓåÆ CSV\n- Avro ΓåÆ JSON",
+        "operationId": "convert_database_api_database_convert__conversion_id__post",
+        "parameters": [
+          {
+            "name": "conversion_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Conversion Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_convert_database_api_database_convert__conversion_id__post"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConversionResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/security/convert/{conversion_id}": {
+      "post": {
+        "tags": [
+          "security"
+        ],
+        "summary": "Convert Security",
+        "description": "Perform security and encoding conversions.\n\nSupported conversions:\n- File Γåö Base64\n- File ΓåÆ Hash (MD5, SHA256, SHA512)\n- File Γåö Encrypted\n- PDF ΓåÆ Locked PDF\n- Locked PDF ΓåÆ PDF",
+        "operationId": "convert_security_api_security_convert__conversion_id__post",
+        "parameters": [
+          {
+            "name": "conversion_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Conversion Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_convert_security_api_security_convert__conversion_id__post"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConversionResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/ai/convert/{conversion_id}": {
+      "post": {
+        "tags": [
+          "ai-powered"
+        ],
+        "summary": "Convert Ai",
+        "description": "Perform AI-powered conversions.\n\nSupported conversions:\n- Image ΓåÆ Text (OCR)\n- PDF ΓåÆ Searchable PDF (OCR)\n- PDF ΓåÆ Text (OCR)\n- Handwritten ΓåÆ Text (OCR)\n- Image/Document ΓåÆ Structured JSON\n\nNote: Requires Tesseract OCR to be installed on the system.",
+        "operationId": "convert_ai_api_ai_convert__conversion_id__post",
+        "parameters": [
+          {
+            "name": "conversion_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Conversion Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_convert_ai_api_ai_convert__conversion_id__post"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConversionResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/": {
+      "get": {
+        "summary": "Root",
+        "description": "Root endpoint with API information",
+        "operationId": "root__get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/health": {
+      "get": {
+        "summary": "Health Check",
+        "description": "Health check endpoint",
+        "operationId": "health_check_health_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/upload": {
+      "post": {
+        "summary": "Upload File",
+        "description": "Upload a file for conversion\n\n- **file**: File to upload\n- **target_format**: Target format for conversion (optional, can be specified later)",
+        "operationId": "upload_file_api_upload_post",
+        "parameters": [
+          {
+            "name": "target_format",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "title": "Target Format"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_upload_file_api_upload_post"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConversionResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/conversions/{conversion_id}": {
+      "get": {
+        "summary": "Get Conversion",
+        "description": "Get conversion status and details",
+        "operationId": "get_conversion_api_conversions__conversion_id__get",
+        "parameters": [
+          {
+            "name": "conversion_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Conversion Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConversionResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete Conversion",
+        "description": "Delete a conversion and its files",
+        "operationId": "delete_conversion_api_conversions__conversion_id__delete",
+        "parameters": [
+          {
+            "name": "conversion_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Conversion Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/conversions": {
+      "get": {
+        "summary": "List Conversions",
+        "description": "List recent conversions",
+        "operationId": "list_conversions_api_conversions_get",
+        "parameters": [
+          {
+            "name": "skip",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 0,
+              "title": "Skip"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 100,
+              "title": "Limit"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/download/{conversion_id}": {
+      "get": {
+        "summary": "Download File",
+        "description": "Download converted file",
+        "operationId": "download_file_api_download__conversion_id__get",
+        "parameters": [
+          {
+            "name": "conversion_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Conversion Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/formats": {
+      "get": {
+        "summary": "Get Supported Formats",
+        "description": "Get all supported file formats",
+        "operationId": "get_supported_formats_api_formats_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Body_convert_ai_api_ai_convert__conversion_id__post": {
+        "properties": {
+          "target_format": {
+            "type": "string",
+            "title": "Target Format"
+          }
+        },
+        "type": "object",
+        "required": [
+          "target_format"
+        ],
+        "title": "Body_convert_ai_api_ai_convert__conversion_id__post"
+      },
+      "Body_convert_archive_api_archives_convert__conversion_id__post": {
+        "properties": {
+          "target_format": {
+            "type": "string",
+            "title": "Target Format"
+          }
+        },
+        "type": "object",
+        "required": [
+          "target_format"
+        ],
+        "title": "Body_convert_archive_api_archives_convert__conversion_id__post"
+      },
+      "Body_convert_audio_api_audio_convert__conversion_id__post": {
+        "properties": {
+          "target_format": {
+            "type": "string",
+            "title": "Target Format"
+          }
+        },
+        "type": "object",
+        "required": [
+          "target_format"
+        ],
+        "title": "Body_convert_audio_api_audio_convert__conversion_id__post"
+      },
+      "Body_convert_code_api_code_convert__conversion_id__post": {
+        "properties": {
+          "target_format": {
+            "type": "string",
+            "title": "Target Format"
+          }
+        },
+        "type": "object",
+        "required": [
+          "target_format"
+        ],
+        "title": "Body_convert_code_api_code_convert__conversion_id__post"
+      },
+      "Body_convert_database_api_database_convert__conversion_id__post": {
+        "properties": {
+          "target_format": {
+            "type": "string",
+            "title": "Target Format"
+          }
+        },
+        "type": "object",
+        "required": [
+          "target_format"
+        ],
+        "title": "Body_convert_database_api_database_convert__conversion_id__post"
+      },
+      "Body_convert_design_api_design_convert__conversion_id__post": {
+        "properties": {
+          "target_format": {
+            "type": "string",
+            "title": "Target Format"
+          }
+        },
+        "type": "object",
+        "required": [
+          "target_format"
+        ],
+        "title": "Body_convert_design_api_design_convert__conversion_id__post"
+      },
+      "Body_convert_image_api_images_convert__conversion_id__post": {
+        "properties": {
+          "target_format": {
+            "type": "string",
+            "title": "Target Format"
+          }
+        },
+        "type": "object",
+        "required": [
+          "target_format"
+        ],
+        "title": "Body_convert_image_api_images_convert__conversion_id__post"
+      },
+      "Body_convert_security_api_security_convert__conversion_id__post": {
+        "properties": {
+          "target_format": {
+            "type": "string",
+            "title": "Target Format"
+          },
+          "password": {
+            "type": "string",
+            "title": "Password"
+          },
+          "algorithm": {
+            "type": "string",
+            "title": "Algorithm",
+            "default": "sha256"
+          }
+        },
+        "type": "object",
+        "required": [
+          "target_format"
+        ],
+        "title": "Body_convert_security_api_security_convert__conversion_id__post"
+      },
+      "Body_convert_video_api_video_convert__conversion_id__post": {
+        "properties": {
+          "target_format": {
+            "type": "string",
+            "title": "Target Format"
+          }
+        },
+        "type": "object",
+        "required": [
+          "target_format"
+        ],
+        "title": "Body_convert_video_api_video_convert__conversion_id__post"
+      },
+      "Body_upload_file_api_upload_post": {
+        "properties": {
+          "file": {
+            "type": "string",
+            "format": "binary",
+            "title": "File"
+          }
+        },
+        "type": "object",
+        "required": [
+          "file"
+        ],
+        "title": "Body_upload_file_api_upload_post"
+      },
+      "ConversionResponse": {
+        "properties": {
+          "id": {
+            "type": "integer",
+            "title": "Id"
+          },
+          "filename": {
+            "type": "string",
+            "title": "Filename"
+          },
+          "source_format": {
+            "type": "string",
+            "title": "Source Format"
+          },
+          "target_format": {
+            "type": "string",
+            "title": "Target Format"
+          },
+          "file_size": {
+            "type": "number",
+            "title": "File Size"
+          },
+          "status": {
+            "type": "string",
+            "title": "Status"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Created At"
+          },
+          "completed_at": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Completed At"
+          },
+          "download_url": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Download Url"
+          },
+          "error_message": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Error Message"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "filename",
+          "source_format",
+          "target_format",
+          "file_size",
+          "status",
+          "created_at"
+        ],
+        "title": "ConversionResponse"
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
+      }
+    }
+  }
+}

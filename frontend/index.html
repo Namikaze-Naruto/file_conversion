@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Conversion Platform - Convert Any File Format</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Theme Toggle -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <svg class="sun-icon" width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"/>
+        </svg>
+        <svg class="moon-icon" width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/>
+        </svg>
+    </button>
+
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                            <rect width="40" height="40" rx="12" fill="url(#gradient)"/>
+                            <path d="M13 20L17 24L27 14" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                            <defs>
+                                <linearGradient id="gradient" x1="0" y1="0" x2="40" y2="40">
+                                    <stop offset="0%" stop-color="#FF6B6B"/>
+                                    <stop offset="100%" stop-color="#4ECDC4"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                    <span class="logo-text">ConvertFlow</span>
+                </div>
+                <h1>Transform Your Files <span class="gradient-text">Instantly</span></h1>
+                <p class="subtitle">100+ format conversions • Lightning fast • No signup required</p>
+            </div>
+            <div class="header-decoration">
+                <div class="float-element float-1"></div>
+                <div class="float-element float-2"></div>
+                <div class="float-element float-3"></div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Upload Section -->
+            <section class="upload-section" id="uploadSection">
+                <div class="category-indicator hidden" id="categoryIndicator">
+                    <span class="category-badge">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <polyline points="9 18 15 12 9 6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span id="categoryName">Documents</span>
+                    </span>
+                </div>
+                <div class="upload-area" id="uploadArea">
+                    <div class="upload-visual">
+                        <div class="upload-circle">
+                            <svg class="upload-icon" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <polyline points="17 8 12 3 7 8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <line x1="12" y1="3" x2="12" y2="15" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <div class="upload-ripple"></div>
+                    </div>
+                    <h2>Drag & drop your file</h2>
+                    <p class="upload-desc">or click to browse from your device</p>
+                    <input type="file" id="fileInput" hidden>
+                    <button class="btn btn-primary" onclick="document.getElementById('fileInput').click()">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        Select File
+                    </button>
+                    <div class="upload-info">
+                        <span class="info-badge">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <circle cx="12" cy="12" r="10" stroke-width="2"/>
+                                <line x1="12" y1="16" x2="12" y2="12" stroke-width="2" stroke-linecap="round"/>
+                                <circle cx="12" cy="8" r="0.5" fill="currentColor" stroke="none"/>
+                            </svg>
+                            Max file size: 50MB
+                        </span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- File Info Section -->
+            <section class="file-info-section hidden" id="fileInfoSection">
+                <div class="file-card">
+                    <div class="file-icon" id="fileIcon">📄</div>
+                    <div class="file-details">
+                        <h3 id="fileName">File Name</h3>
+                        <p id="fileSize">0 MB</p>
+                        <p id="fileFormat">Format: <span></span></p>
+                    </div>
+                    <button class="btn-close" onclick="resetUpload()">✕</button>
+                </div>
+
+                <!-- Format Selection -->
+                <div class="format-selection">
+                    <h3>Convert to:</h3>
+                    <div class="format-categories">
+                        <div class="category-tabs">
+                            <button class="tab-btn active" data-category="all">All</button>
+                            <button class="tab-btn" data-category="document">Documents</button>
+                            <button class="tab-btn" data-category="image">Images</button>
+                            <button class="tab-btn" data-category="audio">Audio</button>
+                            <button class="tab-btn" data-category="video">Video</button>
+                            <button class="tab-btn" data-category="archive">Archives</button>
+                            <button class="tab-btn" data-category="code">Code</button>
+                        </div>
+                        <div class="format-grid" id="formatGrid">
+                            <!-- Format buttons will be dynamically added -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Convert Button -->
+                <button class="btn btn-convert hidden" id="convertBtn" onclick="startConversion()">
+                    Convert File
+                </button>
+            </section>
+
+            <!-- Progress Section -->
+            <section class="progress-section hidden" id="progressSection">
+                <div class="progress-card">
+                    <div class="progress-visual">
+                        <svg class="progress-spinner" width="80" height="80" viewBox="0 0 80 80">
+                            <defs>
+                                <linearGradient id="progressGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#FF6B6B"/>
+                                    <stop offset="100%" stop-color="#4ECDC4"/>
+                                </linearGradient>
+                            </defs>
+                            <circle class="progress-ring-bg" cx="40" cy="40" r="36" />
+                            <circle class="progress-ring" cx="40" cy="40" r="36" id="progressRing" />
+                        </svg>
+                        <div class="progress-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <polyline points="20 6 9 17 4 12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <h3 id="progressText">Converting your file...</h3>
+                    <p class="progress-subtitle">This usually takes just a few seconds</p>
+                    <div class="progress-bar-modern">
+                        <div class="progress-fill-modern" id="progressFill"></div>
+                    </div>
+                    <p class="progress-percentage" id="progressPercentage">0%</p>
+                </div>
+            </section>
+
+            <!-- Download Section -->
+            <section class="download-section hidden" id="downloadSection">
+                <div class="success-card">
+                    <div class="success-animation">
+                        <svg class="checkmark" viewBox="0 0 52 52">
+                            <circle class="checkmark-circle" cx="26" cy="26" r="25" fill="none"/>
+                            <path class="checkmark-check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+                        </svg>
+                    </div>
+                    <h2>All Done! 🎉</h2>
+                    <p class="success-message">Your file has been converted successfully</p>
+                    <div class="success-actions">
+                        <button class="btn btn-download" id="downloadBtn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            Download File
+                        </button>
+                        <button class="btn btn-secondary" onclick="resetUpload()">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M21 3v5h-5M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M3 16v5h5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            Convert Another
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Error Section -->
+            <section class="error-section hidden" id="errorSection">
+                <div class="error-card">
+                    <div class="error-icon">⚠️</div>
+                    <h2>Conversion Failed</h2>
+                    <p id="errorMessage">An error occurred during conversion</p>
+                    <button class="btn btn-secondary" onclick="resetUpload()">
+                        Try Again
+                    </button>
+                </div>
+            </section>
+        </main>
+
+        <!-- Features Section -->
+        <section class="features">
+            <div class="section-header">
+                <h2>Supported <span class="gradient-text">Conversions</span></h2>
+                <p class="section-subtitle">100+ file formats at your fingertips</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card" data-category="document" onclick="openCategoryConverter('document')">
+                    <div class="feature-icon-wrapper">
+                        <svg class="feature-svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <polyline points="14 2 14 8 20 8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <line x1="16" y1="13" x2="8" y2="13" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <line x1="16" y1="17" x2="8" y2="17" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3>Documents</h3>
+                    <p>PDF, DOC, DOCX, TXT, RTF, ODT, XLS, XLSX, CSV, PPT, PPTX, EPUB</p>
+                    <div class="feature-card-cta">
+                        <span>Convert Now</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <line x1="5" y1="12" x2="19" y2="12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <polyline points="12 5 19 12 12 19" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="feature-card" data-category="image" onclick="openCategoryConverter('image')">
+                    <div class="feature-icon-wrapper">
+                        <svg class="feature-svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="8.5" cy="8.5" r="1.5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <polyline points="21 15 16 10 5 21" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3>Images</h3>
+                    <p>JPG, PNG, WebP, TIFF, BMP, HEIC, SVG, ICO, RAW formats</p>
+                    <div class="feature-card-cta">
+                        <span>Convert Now</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <line x1="5" y1="12" x2="19" y2="12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <polyline points="12 5 19 12 12 19" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="feature-card" data-category="audio" onclick="openCategoryConverter('audio')">
+                    <div class="feature-icon-wrapper">
+                        <svg class="feature-svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M9 18V5l12-2v13" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="6" cy="18" r="3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="18" cy="16" r="3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3>Audio</h3>
+                    <p>MP3, WAV, AAC, OGG, FLAC, M4A, OPUS</p>
+                    <div class="feature-card-cta">
+                        <span>Convert Now</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <line x1="5" y1="12" x2="19" y2="12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <polyline points="12 5 19 12 12 19" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="feature-card" data-category="video" onclick="openCategoryConverter('video')">
+                    <div class="feature-icon-wrapper">
+                        <svg class="feature-svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <polygon points="23 7 16 12 23 17 23 7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <rect x="1" y="5" width="15" height="14" rx="2" ry="2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3>Video</h3>
+                    <p>MP4, MKV, AVI, MOV, FLV, WMV, WebM</p>
+                    <div class="feature-card-cta">
+                        <span>Convert Now</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <line x1="5" y1="12" x2="19" y2="12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <polyline points="12 5 19 12 12 19" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="feature-card" data-category="archive" onclick="openCategoryConverter('archive')">
+                    <div class="feature-icon-wrapper">
+                        <svg class="feature-svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <polyline points="21 8 21 21 3 21 3 8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <rect x="1" y="3" width="22" height="5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <line x1="10" y1="12" x2="14" y2="12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3>Archives</h3>
+                    <p>ZIP, RAR, 7Z, TAR, GZIP</p>
+                    <div class="feature-card-cta">
+                        <span>Convert Now</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <line x1="5" y1="12" x2="19" y2="12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <polyline points="12 5 19 12 12 19" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="feature-card" data-category="code" onclick="openCategoryConverter('code')">
+                    <div class="feature-icon-wrapper">
+                        <svg class="feature-svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <polyline points="16 18 22 12 16 6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <polyline points="8 6 2 12 8 18" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3>Code & Data</h3>
+                    <p>JSON, XML, YAML, CSV, SQL, Markdown</p>
+                    <div class="feature-card-cta">
+                        <span>Convert Now</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <line x1="5" y1="12" x2="19" y2="12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <polyline points="12 5 19 12 12 19" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-main">
+                    <div class="footer-logo">
+                        <div class="logo-icon">
+                            <svg width="32" height="32" viewBox="0 0 40 40" fill="none">
+                                <rect width="40" height="40" rx="10" fill="url(#footerGradient)"/>
+                                <path d="M13 20L17 24L27 14" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                                <defs>
+                                    <linearGradient id="footerGradient" x1="0" y1="0" x2="40" y2="40">
+                                        <stop offset="0%" stop-color="#FF6B6B"/>
+                                        <stop offset="100%" stop-color="#4ECDC4"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                        <span>ConvertFlow</span>
+                    </div>
+                    <p class="footer-tagline">All files are encrypted and automatically deleted after 1 hour</p>
+                </div>
+                <div class="footer-links">
+                    <a href="/docs" target="_blank">API Docs</a>
+                    <a href="#privacy">Privacy</a>
+                    <a href="#terms">Terms</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 ConvertFlow. Made with ❤️ for seamless file conversions.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="js/app.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/ui.js"></script>
+    
+    <!-- Toast Notification Container -->
+    <div class="toast-container" id="toastContainer"></div>
+</body>
+</html>
